@@ -17,8 +17,9 @@ func TestTwoSum(t *testing.T) {
 func TestTwoSumNoMatch(t *testing.T) {
 	nums := []int{1, 2, 3}
 	target := 10
+	expected := []int{}
 	response := TwoSum(nums, target)
-	if response != nil {
-		t.Errorf("expected %v, got %v", nil, response)
+	if !reflect.DeepEqual(expected, response) {
+		t.Errorf("expected %v, got %v", expected, response)
 	}
 }

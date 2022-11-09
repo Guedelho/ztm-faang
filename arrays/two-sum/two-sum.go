@@ -1,22 +1,12 @@
 package twosum
 
-func contains(num int, nums map[int]int) bool {
-	for k := range nums {
-		if k == num {
-			return true
-		}
-	}
-	return false
-}
-
 func TwoSum(nums []int, target int) []int {
 	numsMap := make(map[int]int)
 	for i, num := range nums {
-		if contains(num, numsMap) {
-			return []int{numsMap[num], i}
+		if val, ok := numsMap[num]; ok {
+			return []int{val, i}
 		}
-		diff := target - num
-		numsMap[diff] = i
+		numsMap[target-num] = i
 	}
-	return nil
+	return []int{}
 }
