@@ -46,3 +46,12 @@ func TestAlmostPalindrome(t *testing.T) {
 		t.Errorf("expected %v, got %v", expected, response)
 	}
 }
+
+func TestIsPalindrome(t *testing.T) {
+	s := "aaa"
+	expected := true
+	response := AlmostPalindrome(s)
+	if expected != response {
+		t.Errorf("expected %v, got %v", expected, response)
+	}
+}
