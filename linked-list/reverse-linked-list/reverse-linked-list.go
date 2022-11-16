@@ -17,12 +17,12 @@ func (l *ListNode) Print() (list string) {
 }
 
 func ReverseListInterative(head *ListNode) *ListNode {
-	var rev, dummy *ListNode = nil, head
-	for dummy != nil {
-		next := dummy.Next
-		dummy.Next = rev
-		rev = dummy
-		dummy = next
+	var rev *ListNode
+	for head != nil {
+		next := head.Next
+		head.Next = rev
+		rev = head
+		head = next
 	}
 	return rev
 }
