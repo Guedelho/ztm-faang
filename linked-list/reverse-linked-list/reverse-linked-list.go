@@ -36,3 +36,23 @@ func ReverseListRecursive(head *ListNode) *ListNode {
 	head.Next = nil
 	return rev
 }
+
+func ReverseBetween(head *ListNode, left, right int) *ListNode {
+	dummy := &ListNode{Val: 0, Next: head}
+	before := dummy
+	current := head
+	for i := 0; i < left-1; i++ {
+		before = current
+		current = current.Next
+	}
+	var rev *ListNode
+	for i := left; i <= right; i++ {
+		next := current.Next
+		current.Next = rev
+		rev = current
+		current = next
+	}
+	before.Next.Next = current
+	before.Next = rev
+	return dummy.Next
+}

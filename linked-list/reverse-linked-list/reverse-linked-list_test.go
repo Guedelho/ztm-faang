@@ -37,3 +37,18 @@ func TestPrint(t *testing.T) {
 		t.Errorf("expected %v, got %v", expected, response)
 	}
 }
+
+func TestReverseBetween(t *testing.T) {
+	l := ListNode{Val: 1, Next: nil}
+	l.Next = &ListNode{Val: 2, Next: nil}
+	l.Next.Next = &ListNode{Val: 3, Next: nil}
+	l.Next.Next.Next = &ListNode{Val: 4, Next: nil}
+	l.Next.Next.Next.Next = &ListNode{Val: 5, Next: nil}
+	left := 2
+	right := 4
+	expected := "1->4->3->2->5"
+	response := ReverseBetween(&l, left, right).Print()
+	if expected != response {
+		t.Errorf("expected %v, got %v", expected, response)
+	}
+}
