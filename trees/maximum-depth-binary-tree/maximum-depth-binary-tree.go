@@ -1,9 +1,9 @@
 package maximumdepthbinarytree
 
 type TreeNode struct {
+	Val   int
 	Left  *TreeNode
 	Right *TreeNode
-	Val   int
 }
 
 func MaxDepth(root *TreeNode) int {
